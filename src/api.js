@@ -35,7 +35,7 @@ export const getEvents = async () => {
 
     removeQuery();
     const url =
-      "https://ak2tn6w38e.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" +
+      "https://udiwrusn56.execute-api.us-east-2.amazonaws.com/dev/api/get-events" +
       "/" +
       accessToken;
     const response = await fetch(url);
@@ -65,7 +65,7 @@ const removeQuery = () => {
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const response = await fetch(
-    "https://ak2tn6w38e.execute-api.eu-central-1.amazonaws.com/dev/api/token" +
+    "https://udiwrusn56.execute-api.us-east-2.amazonaws.com/dev/api/token" +
       "/" +
       encodeCode
   );
@@ -85,11 +85,11 @@ export const getAccessToken = async () => {
       return getToken(code);
     } else {
       const response = await fetch(
-        "https://ak2tn6w38e.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url"
+        "https://udiwrusn56.execute-api.us-east-2.amazonaws.com/dev/api/get-auth-url"
       );
       const result = await response.json();
-      const { authUrl } = result;
-      window.location.href = authUrl;
+      const { authURL } = result;
+      window.location.href = authURL;
     }
   }
   return accessToken;
